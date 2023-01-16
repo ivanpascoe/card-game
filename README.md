@@ -1,2 +1,2 @@
 # card-game
-Elixitr Udemi Course
+Elixir Udemi Course
