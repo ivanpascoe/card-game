@@ -4,6 +4,7 @@ defmodule Cards do
   """
 
   @doc """
+  Returns a string representing a deck of cards
 
   """
   def create_deck do
@@ -19,10 +20,33 @@ defmodule Cards do
     Enum.shuffle(deck)
   end
 
+  @doc """
+    Determines whether a deck contains a given card
+
+  ## Examples
+
+      iex(1)> deck = Cards.create_deck
+      iex(2)> Cards.contains?(deck, "Ace of Spades")
+      true
+
+  """
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
 
+  @doc """
+      Divides a deck into a hand and the remainder of the deck.
+      The `hand_size` argument indicates how many hands should
+      be in the hand.
+
+   ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> {hand, deck} = Cards.deal(deck, 1)
+      iex> hand
+      ["Ace of Spades"]
+
+  """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
@@ -46,9 +70,5 @@ defmodule Cards do
     |> Cards.shuffle()
     |> Cards.deal(hand_size)
   end
-#     #==> cards
-# Generated cards app
-# Generating docs...
-# View "html" docs at "doc/index.html"
-# View "epub" docs at "doc/cards.epub"
+
 end
